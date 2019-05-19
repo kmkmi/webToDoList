@@ -42,6 +42,7 @@ Setting Environments,
   ```
  
 If, javac is in '/usr/lib/jvm/java-7-openjdk-amd64/bin/javac'
+
 Env Var must be 'JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64'.
 
  
