@@ -1,0 +1,129 @@
+<!doctype html>
+<html xmlns:th="http://www.typeleaf.org">
+<head>
+    <title>To Do List</title>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="QueenAdmin - Beautiful Bootstrap Admin Dashboard Theme">
+    <meta name="author" content="The Develovers">
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/ionicons.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstraps.css}"/>
+</head>
+<body>
+<header class="header">
+    <h1 class="title">To Do List</h1>
+</header>
+<main>
+    <div th:if="${param.invalidAccess}">
+        <p class="error">올바르지 않은 접근입니다.</p>
+    </div>
+    <div class="menu-item-header">
+        <input type="button" onclick="location.href = '/todo/add'" value="추가">
+        <hr/>
+        <div class="form-group" th:unless="${#lists.isEmpty(toDoList)}">
+            <table class="list-unstyled sub-menu collapse">
+                <h2 class="null_text">해야할 사항</h2>
+                <thead>
+                <tr>
+                    <th class="priority">우선순위</th>
+                    <th class="modal-title">제목</th>
+                    <th>남은 일수</th>
+                    <th>삭제</th>
+                    <th>완료</th>
+                    <th>실패</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="toDo : ${toDoList}">
+                    <td th:text="${toDo.priority}"></td>
+                    <td class="modal-title"><a th:href="@{/todo/{toDoNo}/detail(toDoNo=${toDo.no})}"
+                                               th:text="${toDo.title}">제목</a>
+                    </td>
+                    <div th:if="${toDo.deadLine.toString().compareTo('9999-12-31 00:00')} < 0 ">
+                        <td th:text="${toDo.remained}">남은 일수</td>
+                    </div>
+                    <div th:unless="${toDo.deadLine.toString().compareTo('9999-12-31 00:00')} < 0 ">
+                        <td th:text="무기한">남은 일수</td>
+                    </div>
+                    <td><a href="" th:href="@{/todo/{toDoNo}/remove(toDoNo=${toDo.no})}">
+                        <i class="fa fa-times-circle fa-2x" aria-hidden="true"></i></a></td>
+                    <td><a href="" th:href="@{/todo/{toDoNo}/done(toDoNo=${toDo.no})}">
+                        <i class="fa fa-check-circle fa-2x" aria-hidden="true"></i></a></td>
+                    <td><a href="" th:href="@{/todo/{toDoNo}/fail(toDoNo=${toDo.no})}">
+                        <i class="fa fa-exclamation-triangle fa-2x" aria-hidden="true"></i> </a></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="form-group" th:if="${#lists.isEmpty(toDoList)}">
+            <h2 class="null_text">해야할 사항 없음</h2>
+        </div>
+        <hr/>
+        <div class="form-group" th:unless="${#lists.isEmpty(doneList)}">
+            <table class="list-unstyled sub-menu collapse">
+                <h2 class="null_text">완료 사항</h2>
+                <thead>
+                <tr>
+                    <th class="modal-title">제목</th>
+                    <th>계획일</th>
+                    <th>삭제</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="done : ${doneList}">
+                    <td th:text="${done.priority}"></td>
+                    <td class="modal-title"><a th:href="@{/todo/{toDoNo}/detail(toDoNo=${done.no})}"
+                                               th:text="${done.title}"></a></td>
+                    <td th:text="${#dates.format(done.deadLine, 'yyyy년 MM월 dd일')}"></td>
+                    <td>
+                        <a href="" th:href="@{/todo/{toDoNo}/remove(toDoNo=${done.no})}">
+                            <i class="fa fa-times-circle fa-2x" aria-hidden="true"></i>
+                        </a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="form-group" th:if="${#lists.isEmpty(doneList)}">
+            <h2 class="null_text">완료 사항 없음</h2>
+        </div>
+        <hr/>
+        <div class="form-group" th:unless="${#lists.isEmpty(failList)}">
+            <script>
+                alert("실패한 사항이 있습니다!")
+            </script>
+            <table class="list-unstyled sub-menu collapse">
+                <h2 class="null_text">실패 사항</h2>
+                <thead>
+                <tr>
+                    <th class="modal-title">제목</th>
+                    <th>계획일</th>
+                    <th>완료</th>
+                    <th>반성</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="fail : ${failList}">
+                    <td th:text="${fail.priority}"></td>
+                    <td class="modal-title"><a th:href="@{/todo/{toDoNo}/detail(toDoNo=${fail.no})}"
+                                               th:text="${fail.title}"></a></td>
+                    <td th:text="${#dates.format(fail.deadLine, 'yyyy년 MM월 dd일')}"></td>
+                    <td><a href="" th:href="@{/todo/{toDoNo}/done(toDoNo=${fail.no})}">
+                        <i class="fa fa-check-circle fa-2x" aria-hidden="true"></i> </a></td>
+                    <td><a href="" th:href="@{/todo/{toDoNo}/remove(toDoNo=${fail.no})}">
+                        <i class="fa fa-times-circle fa-2x" aria-hidden="true"></i></a></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="form-group" th:if="${#lists.isEmpty(failList)}">
+            <h2 class="null_text">실패 사항 없음</h2>
+        </div>
+        <hr/>
+    </div>
+</main>
+
+</body>
+</html>

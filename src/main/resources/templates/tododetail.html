@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.typeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>상세</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/ionicons.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstraps.css}"/>
+</head>
+<body>
+<header class="header">
+    <h1 class="title">To Do List</h1>
+</header>
+<main class="container todo">
+    <h2>상세</h2>
+    <table class="todo">
+        <tbody>
+        <tr>
+            <th>우선순위:</th>
+            <td th:text="${todo.priority}"></td>
+        </tr>
+        <tr>
+            <th>제목:</th>
+            <td th:text="${todo.title}"></td>
+        </tr>
+        <tr>
+            <div th:if="${todo.deadLine.toString().compareTo('9999-12-31 00:00')} < 0 ">
+                <th>계획일:</th>
+                <td th:text="${#dates.format(todo.deadLine, 'yyyy년 MM월 dd일 HH시 mm분')}"></td>
+            </div>
+        </tr>
+        <tr>
+            <th>내용:</th>
+            <td th:text="${todo.text}"></td>
+        </tr>
+        </tbody>
+    </table>
+    <input type = "button" th:onclick="|window.location.href= '@{/todo/{toDoNo}/edit(toDoNo=${todo.no})}'|" value = "수정" >
+    <input type = "button" onclick = "location.href ='/index'" value = "완료" >
+</main>
+</body>
+</html>
