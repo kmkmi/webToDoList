@@ -16,9 +16,10 @@ Build jar file with Maven module,
 'todolist-0.0.1-SNAPSHOT.jar' is enveloped in this repository.
 
 Move to Ubuntu Server,
-ex)  ```
+ex)
+```
 $ docker cp C:\todolist-0.0.1-SNAPSHOT.jar ubuntuServer:/bin/todolist-0.0.1-SNAPSHOT.jar
- ```
+```
 
 Setting Environments,
  ```
