@@ -28,6 +28,8 @@ window.onload = function () {
   document.getElementById("date").value = today;
   document.getElementById("date").setAttribute("min", today);
 
+  today = "2100-12-31";
+  document.getElementById("date").setAttribute("max", today);
   document.getElementById("time").value = hh + ":00";
 }
 

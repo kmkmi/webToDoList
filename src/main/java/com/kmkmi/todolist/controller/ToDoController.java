@@ -12,21 +12,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-@RequestMapping(value = "/todo")
+@RequestMapping(value = "todo")
 public class ToDoController {
     @Autowired
     private ToDoService toDoService;
 
 
 
-    @RequestMapping(value = "/add", method = RequestMethod.GET)
+    @RequestMapping(value = "add", method = RequestMethod.GET)
     public String add(ModelMap modelMap) {
         ToDo toDo = new ToDo();
         modelMap.addAttribute("todo", toDo);
         return "addtodo";
     }
 
-    @RequestMapping(value = "/add", method = RequestMethod.POST)
+    @RequestMapping(value = "add", method = RequestMethod.POST)
     public String addProcessing(@ModelAttribute("todo") ToDo toDo) {
 
         toDoService.saveToDo(toDo);
@@ -34,7 +34,7 @@ public class ToDoController {
         return "redirect:/index";
     }
 
-    @RequestMapping(value = "/{toDoNo}/remove")
+    @RequestMapping(value = "{toDoNo}/remove")
     public String deleteToDo(@PathVariable Long toDoNo) {
 
 
@@ -45,7 +45,7 @@ public class ToDoController {
         return "redirect:/index";
     }
 
-    @RequestMapping(value = "/{toDoNo}/detail")
+    @RequestMapping(value = "{toDoNo}/detail")
     public String toDoDetail(@PathVariable Long toDoNo, ModelMap modelMap) {
         ToDo toDo = toDoService.getToDo(toDoNo);
 
@@ -54,7 +54,7 @@ public class ToDoController {
         return "tododetail";
     }
 
-    @RequestMapping(value = "/{toDoNo}/done")
+    @RequestMapping(value = "{toDoNo}/done")
     public String doneToDo(@PathVariable Long toDoNo) {
 
         toDoService.statToDone(toDoNo);
@@ -62,7 +62,7 @@ public class ToDoController {
         return "redirect:/index";
     }
 
-    @RequestMapping(value = "/{toDoNo}/edit")
+    @RequestMapping(value = "{toDoNo}/edit")
     public String editToDo(@PathVariable Long toDoNo, ModelMap modelMap) {
         ToDo exToDo = toDoService.getToDo(toDoNo);
 
@@ -72,7 +72,7 @@ public class ToDoController {
         return "edittodo";
     }
 
-    @RequestMapping(value = "/{toDoNo}/fail")
+    @RequestMapping(value = "{toDoNo}/fail")
     public String failToDo(@PathVariable Long toDoNo) {
 
         toDoService.statToFail(toDoNo);
@@ -80,7 +80,7 @@ public class ToDoController {
         return "redirect:/index";
     }
 
-    @RequestMapping(value = "/{toDoNo}/editProcessing", method = RequestMethod.POST)
+    @RequestMapping(value = "{toDoNo}/editProcessing", method = RequestMethod.POST)
     public String editProcessing(@PathVariable Long toDoNo, @ModelAttribute ToDo toDo) {
 
         toDo.setNo(toDoNo);

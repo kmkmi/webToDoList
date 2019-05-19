@@ -36,7 +36,7 @@
         </tbody>
     </table>
     <input type = "button" th:onclick="|window.location.href= '@{/todo/{toDoNo}/edit(toDoNo=${todo.no})}'|" value = "수정" >
-    <input type = "button" onclick = "location.href ='/index'" value = "완료" >
+    <input type = "button" th:onclick="|window.location.href= '@{/index}'|" value = "완료" >
 </main>
 </body>
 </html>

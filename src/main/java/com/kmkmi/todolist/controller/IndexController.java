@@ -24,7 +24,7 @@ public class IndexController {
         return "redirect:/index";
     }
 
-    @RequestMapping(value = "/index")
+    @RequestMapping(value = "index")
     public String index(ModelMap modelMap, @SortDefault(sort = {"deadLine"}) Sort sort) {
 
         toDoService.checker();
@@ -36,6 +36,6 @@ public class IndexController {
         modelMap.addAttribute("toDoList", toDoList);
         modelMap.addAttribute("failList", failList);
         modelMap.addAttribute("doneList", doneList);
-        return "/index";
+        return "index";
     }
 }
