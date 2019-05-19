@@ -9,6 +9,7 @@ Assignment for programmers summer coding internship.
 Tested with docker Ubuntu 18.04.2 LTS \n \l env.
 
 Build jar file with Maven module, 
+
  ```
  $ mvn package spring-boot:repackage -Dmaven.test.skip=true
  ```
@@ -17,11 +18,13 @@ Build jar file with Maven module,
 
 Move to Ubuntu Server,
 ex)
+
 ```
 $ docker cp C:\todolist-0.0.1-SNAPSHOT.jar ubuntuServer:/bin/todolist-0.0.1-SNAPSHOT.jar
 ```
 
 Setting Environments,
+
  ```
  $ apt-get update 
  $ apt-get -y install sudo
@@ -32,6 +35,7 @@ Setting Environments,
   ```
  
  Checking path of javac
+ 
  ``` 
  $ which javac  
  $ readlink -f /usr/bin/javac
@@ -42,10 +46,13 @@ Env Var must be 'JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64'.
 
  
  Setting Env Var,
+ 
   ```
   $ sudo vi /etc/profile
   ```
+  
  Append below code(),
+ 
  ~~~
  export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
  export PATH=$JAVA_HOME/bin:$PATH
@@ -53,11 +60,13 @@ Env Var must be 'JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64'.
  ~~~
 
 Reload the profile file.
+
 ```
  $ source /etc/profile
  ```
 
 Checking Env Var,
+
 ```
  $ echo $JAVA_HOME
  $ JAVA_HOME/bin/javac -version
@@ -67,6 +76,7 @@ Then Java installation is finished.
  
  
 ex)
+
 ```
 $ java -jar /bin/todolist-0.0.1-SNAPSHOT.jar
 ```
