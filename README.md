@@ -89,6 +89,9 @@ ex)
 $ java -jar /bin/todolist-0.0.1-SNAPSHOT.jar
 ```
 
+![alt text](/linuxServer.png )
+
+
 Then access to (http://localhost:8080) in host Os.
 
  
