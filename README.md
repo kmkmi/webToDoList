@@ -8,6 +8,12 @@ Assignment for programmers summer coding internship.
 
 Tested with docker Ubuntu 18.04.2 LTS \n \l env.
 
+Must Run docker container with port forwarding,
+
+```
+ $ docker run -p 8080:8080 -i -t --name ubuntuServer ubuntu /bin/bash
+```
+
 Build jar file with Maven module, 
 
  ```
@@ -74,7 +80,7 @@ Checking Env Var,
 ```
  
 Then Java installation is finished.
- 
+Excute Web Server,
  
 ex)
 
@@ -82,6 +88,7 @@ ex)
 $ java -jar /bin/todolist-0.0.1-SNAPSHOT.jar
 ```
 
+Then access to (http://localhost:8080) in host Os.
 
  
  
