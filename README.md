@@ -1,5 +1,8 @@
 # webToDoList
 Assignment for Programmers Summer Coding Internship.
+This is Spring boot (Maven) based Web/Server,
+view is Thymeleaf, hosting server is Heroku,
+deployment is done by using Docker Ubuntu container.
 
 # Heroku Webpage
 [Heroku Webpage](https://kmkmitodolist.herokuapp.com)
