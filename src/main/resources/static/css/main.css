@@ -2789,11 +2789,10 @@ div.DTTT_collection a.DTTT_button {
   font-size: 18px;
 }
 
-.note-editor .note-toolbar .note-table .dropdown-menu .note-dimension-picker .note-dimension-picker-mousecatcher {
-  position: absolute !important;
+div {
+  /*position: absolute !important;*/
   z-index: 3;
-  width: 10em;
-  height: 10em;
+  /*width: 10em;*/
   cursor: pointer;
 }
 
@@ -5737,21 +5736,21 @@ select.input-sm {
   padding-left: 0;
 }
 
-.panel-group .panel-minimal .panel-heading + .panel-collapse > .panel-body {
+tbody {
   border-top: none;
   padding-top: 0;
   margin-top: -5px;
 }
 
 /* bootstrap tooltip */
-.tooltip .tooltip-inner {
+tr {
   -moz-border-radius: 2px;
   -webkit-border-radius: 2px;
   border-radius: 2px;
 }
 
 /* bootstrap popover */
-.popover {
+th {
   -moz-border-radius: 2px;
   -webkit-border-radius: 2px;
   border-radius: 2px;
@@ -5759,19 +5758,21 @@ select.input-sm {
   -webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
   box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
-.popover .popover-title {
+thead {
   -moz-border-radius: 2px 2px 0 0;
   -webkit-border-radius: 2px;
   border-radius: 2px 2px 0 0;
   font-weight: 700;
 }
-.popover .popover-title i {
+input {
   position: relative;
   top: 2px;
   font-size: 22px;
 }
-.popover .popover-content {
-  font-size: 0.9em;
+table {
+    font-size: 0.9em;
+    border: 0.4em inset;
+    border-spacing: 12px;
 }
 .popover.left .arrow:after {
   right: 2px;
@@ -7996,12 +7997,10 @@ div[class*="col-"] > .form-group {
   border: none;
 }
 
-.btn-nav-sidebar-minified,
-.btn-off-canvas {
+header{
   padding: 11px 15px;
 }
-.btn-nav-sidebar-minified i,
-.btn-off-canvas i {
+h1 {
   display: inline-block;
   vertical-align: middle;
   *vertical-align: auto;
@@ -8013,8 +8012,7 @@ div[class*="col-"] > .form-group {
   font-size: 24px;
   line-height: 1;
 }
-.btn-nav-sidebar-minified i:hover,
-.btn-off-canvas i:hover {
+h2 {
   color: #696565;
 }
 

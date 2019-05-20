@@ -7,8 +7,9 @@
     <meta name="description" content="QueenAdmin - Beautiful Bootstrap Admin Dashboard Theme">
     <meta name="author" content="The Develovers">
     <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}"/>
-    <link rel="stylesheet" type="text/css" th:href="@{/css/ionicons.css}"/>
-    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstraps.css}"/>
+    <!-- Google Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,300,400,700' rel='stylesheet' type='text/css'>
+
 </head>
 <body>
 <header class="header">
@@ -19,8 +20,8 @@
         <p class="error">올바르지 않은 접근입니다.</p>
     </div>
     <div class="menu-item-header">
-        <input type="button" th:onclick="|window.location.href= '@{/todo/add}'|" value="추가">
-        <hr/>
+        <input type="button"  th:onclick="|window.location.href= '@{/todo/add}'|" value="추가">
+            <hr/>
         <div class="form-group" th:unless="${#lists.isEmpty(toDoList)}">
             <table class="list-unstyled sub-menu collapse">
                 <h2 class="null_text">해야할 사항</h2>

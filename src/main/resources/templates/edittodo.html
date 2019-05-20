@@ -44,8 +44,8 @@
             </tbody>
         </table>
         <input type="hidden" name="toDoStat" id="toDoStat" th:value="${extodo.toDoStat}"/>
-        <input type="submit" onclick="return submitting()"  value="등록">
-        <input type = "button" th:onclick="|window.location.href= '@{/index}'|" value = "취소" >
+        <input type="submit"align="right" onclick="return submitting()"  value="등록">
+        <input type = "button" align="right"  th:onclick="|window.location.href= '@{/index}'|" value = "취소" >
     </form>
 </main>
 <script type="text/javascript" th:src="@{/js/todo.js}"></script>
