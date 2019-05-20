@@ -1,8 +1,9 @@
 # webToDoList
-Assignment for programmers summer coding internship.
+Assignment for Programmers Summer Coding internship.
 
 # Heroku Webpage
 [Heroku Webpage](https://kmkmitodolist.herokuapp.com)
+Heroku server might be having delay. Please wait a second.
 
 # Linux Server Build
 
