@@ -1,5 +1,5 @@
 # webToDoList
-Assignment for Programmers Summer Coding internship.
+Assignment for Programmers Summer Coding nternship.
 
 # Heroku Webpage
 [Heroku Webpage](https://kmkmitodolist.herokuapp.com)
